@@ -29,3 +29,18 @@ Linear classifiers are mathematically transparent models, but their training beh
 ## Tools used
 
 Python, NumPy, scikit-learn, Matplotlib, LaTeX
+
+## Key findings
+
+- **Scale invariance:** Positively rescaling (θ, θ₀) leaves the classifier and decision boundary unchanged, but changes the signed agreements and gradients. The geometric margin stays the same.
+- **Learning rate:** On standardised synthetic data (λ = 0.1), the learning rate mainly changes the speed of descent. None of the rates tested (0.001 to 1) diverged.
+- **Feature scaling:** Multiplying one feature by 100 (training std ≈ 1.78 vs 173.14) made training very sensitive to the learning rate, with large oscillations. Standardising removed the problem.
+- **Regularisation:** Larger λ keeps the weight norm smaller and makes training settle at a more strongly regularised solution.
+- **Real data:** On Breast Cancer Wisconsin, raw features gave a large, oscillating objective, while standardised features gave smooth descent.
+
+## How to run
+
+pip install numpy matplotlib scikit-learn
+python dissertation_code.py
+
+The script generates all the figures as PDFs in the current folder. Each plot opens in a window, so close it to continue to the next one.
